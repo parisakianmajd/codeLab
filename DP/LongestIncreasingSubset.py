@@ -15,18 +15,13 @@ def longestSub(arr):
 
     return maxLen
 
-def longestSubUntil(arr, i,maxLens):
-    maxLen = 1
-    for j in xrange(i):
-        if arr[j] < arr[i]:
-            maxLen = max(maxLen, maxLens[j] + 1)
-    return maxLen
-
 def longestSubDp(arr):
     maxLens = [1] * len(arr)
     for i in xrange(len(arr)):
-        maxLens[i] = longestSubUntil(arr,i,maxLens)
-    return max(maxLens)
+        for j in xrange(i):
+            if arr[j] < arr[i]:
+                maxLens[i] = max(maxLens[i], maxLens[j] + 1)
+    return maxLens[-1]
 
 
 arr = [10, 22, 9, 33, 21, 50, 41, 60, 80]
