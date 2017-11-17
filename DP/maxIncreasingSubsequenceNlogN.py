@@ -21,12 +21,15 @@ def longestIncreasingSubSequence(arr):
     T[0] = 0
     length = 0
     for i in xrange(1, len(arr)):
+        # if arr[i] is smallest among all
         if arr[T[0]] > arr[i]:
             T[0] = i
+        # if arr[i] is the greatest among all
         elif arr[T[length]] < arr[i]:
                  length += 1
                  T[length] = i
                  R[T[length]] = T[length-1]
+        # else find the greater element less than arr[i] 
         else:
             index = ceilIndex(arr, T, length, arr[i]);
             T[index] = i
