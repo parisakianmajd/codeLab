@@ -1,7 +1,7 @@
 #0-1 knapsack Problem
 
 def knapSack(W, wt, val, n):
-    table = [[0 for x in range(W+1)] for x in range(n+1)]
+    table = [[0 for x in range(W+1)] for y in range(n+1)]
  
     for i in range(1,n+1):
         for w in range(1,W+1):
