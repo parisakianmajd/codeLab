@@ -21,11 +21,12 @@ def printPreorder(root):
         print(root.val),
         printPreorder(root.left)
         printPreorder(root.right)
+
+        
 def iterativeInOrder(current):
     nodeStack = [] 
-    done = 0
      
-    while(not done):
+    while True:
         if current is not None:
             nodeStack.append(current)
             current = current.left 
@@ -35,7 +36,8 @@ def iterativeInOrder(current):
                 print current.val,
                 current = current.right 
             else:
-                done = 1
+                break
+            
 def iterativePreOrder(root):
     if root is None:
         return
