@@ -22,7 +22,28 @@ def printPreorder(root):
         printPreorder(root.left)
         printPreorder(root.right)
 
-        
+
+
+def bfs(root):
+    if root is None:
+        return
+     
+    queue = [root]
+ 
+    while len(queue) > 0:
+        # Print front of queue and remove it from queue
+        print queue[0].data,
+        node = queue.pop(0)
+ 
+        #push left child
+        if node.left is not None:
+            queue.append(node.left)
+ 
+        # push right child
+        if node.right is not None:
+            queue.append(node.right)
+
+
 def iterativeInOrder(current):
     nodeStack = [] 
      
