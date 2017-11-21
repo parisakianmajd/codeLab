@@ -49,7 +49,7 @@ def iterativePreOrder(root):
     #   b) push its right child
     #   c) push its left child
 
-    while(len(nodeStack) > 0):
+    while len(nodeStack) > 0:
         node = nodeStack.pop()
         print node.val,
         if node.right is not None:
@@ -71,7 +71,7 @@ def iterativePostOrder(root):
      
     s1.append(root)
      
-    while (len(s1) >0):
+    while len(s1) >0:
          
         # Pop an item from s1 and append it to s2
         node = s1.pop()
@@ -84,7 +84,7 @@ def iterativePostOrder(root):
             s1.append(node.right)
  
         # Print all eleements of second stack
-    while(len(s2) > 0):
+    while len(s2) > 0:
         node = s2.pop()
         print node.val,
 
