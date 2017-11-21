@@ -2,6 +2,24 @@
 # ?: any one char
 # *:  any sequence of characters including the empty sequence
 
+
+
+def wildCardMatch_recursive(text, pattern, pos1, pos2):
+    if len(text) == 0 and len(pattern) == 0:
+        return True
+
+    if len(pattern) > 1 and pattern[0] == '*' and  len(text) == 0:
+        return False
+ 
+    if (pattern[0] == '?' and len(text)! =0) or (len(text) != 0 and text[0] == pattern[0]):
+        return wildCardMatch_recursive(text[1:], pattern[1:]);
+ 
+    # with the * there are two posibilities
+    if len(text) !=0 and pattern[0] == '*':
+        return wildCardMatch_recursive(text[1:],pattern) or wildCardMatch_recursive(text,pattern[1:])
+ 
+    return False
+
 def wildCardMatch(text, pattern):
     p = len(pattern)
     t = len(text)
@@ -31,3 +49,4 @@ print wildCardMatch('xaylmz', 'x?y*z')
 print wildCardMatch('', '?')
 print wildCardMatch('t', '*')
 print wildCardMatch('', '*')
+print wildCardMatch_recursive('xaylmz', 'x?y*z', 0, 0)
