@@ -30,9 +30,10 @@ class LinkedList:
             return self.head
         current = self.head
         while current.next is not None:
-            while current.val == current.next.val:
+            if current.val == current.next.val:
                 current.next = current.next.next
-            current = current.next
+            else:
+                current = current.next
         return self
 
 head = Node()
