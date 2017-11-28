@@ -1,4 +1,5 @@
 def gcd(a, b):
+    if a < b: return gcd(b,a)
     '''Return greatest common divisor using Euclid's Algorithm.'''
     while b:      
         a, b = b, a % b
