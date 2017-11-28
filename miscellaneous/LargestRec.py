@@ -21,6 +21,7 @@ def largestRecArea(hist):
                     maxArea = area
             if len(heights) == 0:
                 heights.append(hist[i])
+                # if the stack becomes empty, add the last position back because that's the start of the current rec
                 positions.append(p)
     while len(heights):
         h = heights.pop()
