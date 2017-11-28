@@ -1,4 +1,9 @@
 #Given a binary tree check if it's a mirror of itself
+#    1
+#   / \
+#  2   2
+# / \ / \
+#3  4 4  3
 
 class Node:
     def __init__(self, val, left = None, right = None):
