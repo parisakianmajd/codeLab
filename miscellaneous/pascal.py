@@ -40,6 +40,24 @@ class Pascal:
                 row.append(len(list(combinations(range(r), i))))
             triangle.append(row)
         return triangle
+
+
+    def getRow(self, A):
+            row = [1]
+            if A == 0:
+                return row
+            # C(n,k+1) = C(n,k) * (n-k) / (k+1)
+            for k in xrange(A):
+                row.append(row[k] * (A-k) / (k+1))
+            return row
+    def generate4(self):
+        triangle = []
+        for r in xrange(self.size):
+            row = []
+            for i in xrange(r):
+                row=self.getRow(i)
+            triangle.append(row)
+        return triangle     
     
     def draw(self):
         triangle = self.generate()
@@ -53,5 +71,5 @@ class Pascal:
         
 
                             
-pascal = Pascal(20)
+pascal = Pascal(5)
 pascal.draw()
