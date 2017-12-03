@@ -17,14 +17,6 @@ def isPrime(n):
     return True
 
 
-def sieve(n):
-  primes = [True] * (n+1)
-  for p in range(2, n+1):
-    if (isPrime(p)):
-      for i in range(p, n+1, p):
-        primes[i] = False
-  return primes
-
 
 def primes_sieve2(limit):
     a = [True] * limit
