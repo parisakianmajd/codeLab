@@ -13,18 +13,18 @@ def combine(arr,n):
     return new_comb + combine(tail,n)
 
 def permute(s):
-   if len(s) == 1:
-     return [s]
+       if len(s) == 1:
+         return [s]
 
-   perm_list = [] 
-   for a in s:
-     remaining_elements = [x for x in s if x != a]
-     other_permutes = permute(remaining_elements) 
+       perm_list = [] 
+       for a in s:
+         remaining_elements = [x for x in s if x != a]
+         other_permutes = permute(remaining_elements) 
 
-     for p in other_permutes:
-       perm_list.append([a] + p)
+         for p in other_permutes:
+           perm_list.append([a] + p)
 
-   return perm_list
+       return perm_list
 
 
 print combine(range(1,5),2)
