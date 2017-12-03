@@ -5,28 +5,27 @@
 # traverse the array again and print the first index which has positive value
 
 # seperate negative integers
-def segregate(arr):
-    j = 0
-    for i in xrange(len(arr)):
-        if arr[i] <= 0:
-            arr[i], arr[j] = arr[j], arr[i]
-            j += 1
-    return j
+    def segregate(arr):
+        j = 0
+        for i in xrange(len(arr)):
+            if arr[i] <= 0:
+                arr[i], arr[j] = arr[j], arr[i]
+                j += 1
+        return j
 
-def findMissingPositive(arr):
-    print arr
-    for i in xrange(len(arr)):
-        if abs(arr[i]) - 1 < len(arr) and arr[abs(arr[i]) - 1] > 0:
-            arr[abs(arr[i]) - 1] = -arr[abs(arr[i]) - 1]
-    # return index of the first positive element
-    for i in xrange(len(arr)):
-        if arr[i] > 0:
-            return i + 1
-    return len(arr) + 1
+    def findMissingPositive(arr):
+        for i in xrange(len(arr)):
+            if abs(arr[i]) - 1 < len(arr) and arr[abs(arr[i]) - 1] > 0:
+                arr[abs(arr[i]) - 1] = -arr[abs(arr[i]) - 1]
+        # return index of the first positive element
+        for i in xrange(len(arr)):
+            if arr[i] > 0:
+                return i + 1
+        return len(arr) + 1
 
-def findMissing(arr):
-    shift = segregate(arr)
-    return findMissingPositive(arr[shift:])
+    def findMissing(arr):
+        shift = segregate(arr)
+        return findMissingPositive(arr[shift:])
  
     
 
