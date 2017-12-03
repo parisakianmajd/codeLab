@@ -7,7 +7,7 @@ def numToCol(num):
     column = ""
     while num > 0:
         num, remainder = divmod(num - 1, 26)
-        column = chr(65 + remainder) + column
+        column = chr(ord('A') + remainder) + column
     return column
 
 def colToNum(col):
