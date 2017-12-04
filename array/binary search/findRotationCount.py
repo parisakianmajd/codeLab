@@ -11,15 +11,17 @@ def findRotationCount(arr):
     n = len(arr)
     low, high = 0, n-1
     while low <= high:
-        # if the segment is sorted return the index of the smallest element
+        # considering 4 cases:
+        # 1- if the segment is sorted return the index of the smallest element
         if arr[low] <= arr[high]:
             return low
         mid = (low + high)/2
         nextElem = (mid + 1) %n
         prevElem = (mid  + n - 1)%n
+        # 2- if the two sides of the element are larger than it.
         if arr[mid] <= arr[nextElem] and arr[mid] <= arr[prevElem]:
             return mid
-        # discard one of the halfs
+        # 3, 4: discard one of the halfs that's sorted.. Only one of this condition will happen (only one half is going to be sorted)
         elif arr[mid] <= arr[high]:
             high = mid - 1
         elif arr[mid] >= arr[low]:
