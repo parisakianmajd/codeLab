@@ -1,3 +1,5 @@
+# Find the prime number which can be written as the sum of the most consecutive primes smaller than or equal to limit.
+
 from collections import defaultdict
 
 def primes_sieve(limit):
@@ -21,7 +23,11 @@ def longest_consecutive_prime_sum(until):
 
     primes_set = set(primes)
     primes_sum = [0]
-
+    
+    # find the pefix array (primes_sum)
+    # the prefix array helps to find the sum of subsets fast then for each subset we check if the sum is prime
+    # if so this can be a candide answer, but we'll continue searching until the sum is greater than the limit
+    
     for i in range(0, len(primes)):
         primes_sum.append(primes_sum[i] + primes[i])
     total_primes = 0
