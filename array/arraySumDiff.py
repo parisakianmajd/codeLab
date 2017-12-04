@@ -1,4 +1,5 @@
-
+# To find the pairs that sum up to k, use two pointers at the start and end of array
+# o find the pairs with differerence of k, use two pointers at the start of the array
 
 #Given an integer array, output all pairs that sum up to a specific value k.
 def pairSum(arr, k):
