@@ -1,3 +1,5 @@
+# implementing dfs using stack 
+# and bfs using queue
 
 def dfs_recursive(graph, vertex, path=[]):
     path += [vertex]
