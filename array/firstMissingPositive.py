@@ -15,6 +15,7 @@
 
     def findMissingPositive(arr):
         for i in xrange(len(arr)):
+            # for each positive element, i, check if i-1 is in the array and not marked!
             if abs(arr[i]) - 1 < len(arr) and arr[abs(arr[i]) - 1] > 0:
                 arr[abs(arr[i]) - 1] = -arr[abs(arr[i]) - 1]
         # return index of the first positive element
