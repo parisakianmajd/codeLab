@@ -1,6 +1,7 @@
 from collections import Counter
 #Given a sorted array of integers, find the number of occurrences of a given target value.
 # using Binary search
+# find the first and last occurance of the element in the array and the number of occurances =last - first + 1
 
 
 def BinarySearch(arr, target):
