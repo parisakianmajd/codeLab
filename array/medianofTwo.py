@@ -1,5 +1,12 @@
 # a binary-search based approach for finding the median of two sorted arrays
-# time complexity O(log(n+m)) where n, m are size of the two arrays
+
+
+# Sol. we need to partition the two array such that the number of elemenets in the right is equal to left and every element on the left is smaller than every element on the right
+# e.g. x1, x2|, x3, x4, x5, x6
+# y1, y2, y3, y4, y5,| y6, y7, y8
+# if x2 <= y6 and y5 <= x3 ==> if size of array is even: med = (max(x3, y6) + min(x2, y5)) / 2   else  med = max(x2, y5)
+
+# to find the partition do a binary search on the smaller array .. time complexity O(long(min(m, n))
 
 import sys
 
@@ -11,7 +18,7 @@ def medianOfSortedArrays(arr1, arr2):
     if n ==0 and m==0:
         return -1
     start = 0
-    end = m
+    end = m   # place end at the end of the smaller array
     while start <= end:
         partition_1 = (start + end) / 2
         partition_2 = (n + m + 1)/2 - partition_1
@@ -41,7 +48,12 @@ def median(arr):
     return arr[n/2]
     
 
-# Compare the median of the two arrays of equal size
+#If the two arrays are of equal size we can compare the median of the two m1, m2
+# if  m1 == m2 we are done!
+# if m1 > m2  median is from the first element of ar1 to m1 OR from m2 to last element of ar2 
+# if m2 > m1 median is From m1 to last element of ar2 OR from the first element of ar2 to m2
+# repeat this until the size of two subarrays is 2, then return  (max(ar1[0], ar2[0]) + min(ar1[1], ar2[1])) / 2
+
 def medianOfSortedArrays2(arr1, arr2):
     n = len(arr1)
     if n ==0:
