@@ -1,4 +1,5 @@
 from itertools import combinations, permutations
+# c(n, r) = c(n-1, r) + c(n-1, r-1)
 
 def combine(arr,n):
     if not n:
@@ -8,9 +9,9 @@ def combine(arr,n):
 
     head = [arr[0]]
     tail = arr[1:]
-    new_comb = [head + lst for lst in combine(tail, n - 1)]
+    comb = [head + lst for lst in combine(tail, n - 1)] + combine(tail, n)
 
-    return new_comb + combine(tail,n)
+    return comb
 
 def permute(s):
        if len(s) == 1:
