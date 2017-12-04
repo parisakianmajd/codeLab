@@ -1,4 +1,6 @@
 #Given a sorted array of integers, find the starting and ending position of a given target value.
+# See also count.py for the same problem and see Python bisec approach at the end
+
 #Your algorithm's runtime complexity must be in the order of O(log n).
 #If the target is not found in the array, return [-1, -1].
 
@@ -39,6 +41,8 @@ def search(arr, target):
             result.append(findRightBorder(arr, med, end, target))
             return result
     return [-1,-1]
+
+
 # Bisect module provides support for maintaining a list in sorted order without having to sort the list after each insertion.
 # bisect_left: The returned insertion point i partitions the array a into two halves
 # so that all(val < x for val in a[lo:i]) for the left side and similarly everything on the right side is greater than x
