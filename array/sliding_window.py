@@ -1,4 +1,4 @@
-# Given an array find the maximum value from A[i] to A[i+w-1]
+# Given an array find the maximum value from A[i] to A[i+k-1]
 # in O(n)
 
 from collections import deque
@@ -13,7 +13,7 @@ def maxSlidingWindow(nums, k):
         while dq and nums[i] >= nums[dq[-1]]:
             dq.pop()
         dq.append(i)
-        # remove the elements that are out of this window
+        # if i>= k remove the elements that are out of this window
         if i >= k and dq and dq[0] <= i - k:
             dq.popleft()
         if i >= k - 1:
