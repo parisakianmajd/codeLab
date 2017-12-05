@@ -1,7 +1,7 @@
 #Each bulb has a switch associated with it, however due to faulty wiring,
 #a switch also changes the state of all the bulbs to the right of current bulb.
 
-#not efficient
+#Brute Force.
 def switchOn(bulbs):
     count = 0
     i = 0
