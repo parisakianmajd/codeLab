@@ -2,12 +2,9 @@
 
 def waveSort(arr):
     arr = sorted(arr)
-    for i in xrange(1,len(arr)):
-        if i %2 == 0:
-            if arr[i-1] > arr[i]:
-                arr[i-1], arr[i] = arr[i], arr[i-1]
-            elif arr[i-1] < arr[i]:
-                arr[i-1], arr[i] = arr[i], arr[i-1]
+    # swap the adjancent elemtns
+    for i in xrange(0,len(arr), 2):
+        arr[i+1], arr[i] = arr[i], arr[i+1]
     return arr
 
 
