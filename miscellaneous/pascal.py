@@ -11,7 +11,7 @@ class Pascal:
     def generate(self):
         a = self.size
         if a == 0:
-            return
+            return []
         if a == 1:
             return [[1]]
         triangle = [[1]]
