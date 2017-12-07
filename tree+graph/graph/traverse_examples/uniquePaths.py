@@ -22,3 +22,8 @@ def uniquePaths(A, B):
     return count[-1][-1]
 
 print uniquePaths(2,2)
+
+# Using Combination 
+# Find the number of ways to arrange LLLLRRR
+print factorial(A+B-2) /(factorial(A-1)*  factorial(B-1))
+
