@@ -23,10 +23,13 @@ def stockBuySell(prices):
         sell = i - 1
         solutions.append((buy, sell))
 
-    for s in solutions:
-        print "Buy on : %d,  Sell on day: %d" % (s[0], s[1])
-    return
+
+    return solutions
     
 prices = [100, 180, 260, 310, 40, 535, 695]
 prices = [1,2,1]
-stockBuySell(prices)
+solutions = stockBuySell(prices)
+for s in solutions:
+    print "Buy on : %d,  Sell on day: %d" % (s[0], s[1])
+
+
