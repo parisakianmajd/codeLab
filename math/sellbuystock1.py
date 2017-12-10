@@ -25,11 +25,10 @@ def stockBuySell(prices):
 
 
     return solutions
-    
-prices = [100, 180, 260, 310, 40, 535, 695]
 prices = [1,2,1]
 solutions = stockBuySell(prices)
+profit = 0
 for s in solutions:
     print "Buy on : %d,  Sell on day: %d" % (s[0], s[1])
-
-
+    profit += prices[s[1]] - prices[s[0]]
+print profit
