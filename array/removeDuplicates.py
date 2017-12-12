@@ -14,6 +14,17 @@ def removeDuplicates(arr):
     print arr[:count]
     return count
 
+# remove duplicates so that each element appears only once
+def removeDuplicates(A):
+    count = 0
+    n = len(A)
+    for i in xrange(n):
+        if i< n-1 and A[i] == A[i+1]:
+            continue
+        else:
+            A[count] = A[i]
+            count += 1
+    return count
 
 A = [1,1,1,2,2,2,2,2,5]
 print removeDuplicates(A)
