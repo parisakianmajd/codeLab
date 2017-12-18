@@ -54,9 +54,19 @@ def KMPSearch(pat, txt):
                 j = lps[j-1]
             else:
                 i += 1
- 
-
- 
+# Naive pattern matching
+def strStr(txt, pattern):
+    if txt == '' or pattern == '':
+        return 0
+    else:
+        lenPattern = len(pattern) 
+        for i in range(len(txt)):
+            if txt[i] == pattern[0]:
+                if txt[i:i+lenPattern] == pattern:
+                    return i
+            if (len(txt) - i-1) < len(pattern):
+                return -1
+        return -1
 txt = "ABABDABACDABABCABAB"
 pat = "ABABCABAB"
 KMPSearch(pat, txt)
