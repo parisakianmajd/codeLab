@@ -15,9 +15,17 @@ def anti_diagonal(grid):
         newGrid.append(b[:i] + r + b[i:])
     return [[c for c in r if c is not None] for r in getColums(newGrid)]
         
-
+def anti_diagonal2(a):
+    l = len(a)
+    result = [[] for x in range(2*l-1)]
+    for r in range(l):
+            for c in range(l):
+                    result[r+c].append(a[r][c])
+        
+    return result
 grid = [[1, 2, 3], \
         [4, 5, 6],\
         [7, 8, 9]]
 
 print anti_diagonal(grid)
+print anti_diagonal2(grid)
