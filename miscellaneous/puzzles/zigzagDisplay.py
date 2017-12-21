@@ -13,7 +13,7 @@ def zigzag(word, n):
     result = [''] * n
     binNum = 0
     direct = 1
-    for a in A:
+    for a in word:
         result[binNum]+=a
         binNum += direct
         if binNum == 0 or binNum == n-1:
