@@ -48,6 +48,24 @@ def pairDiff(arr, k):
         else:
             right += 1
     return pairs
+
+# distict diff
+def pairDistinctDiff(arr, k):
+    if len(arr) < 2:
+        return
+    arr.sort()
+    pairs = []
+    left, right = 0, 1
+    while right < len(arr):
+        if arr[right] - arr[left] == k and right != left:
+            pairs.append([arr[left], arr[right]])
+            left += 1
+            right += 1
+        elif arr[right] - arr[left] > k:
+            left += 1
+        else:
+            right += 1
+    return pairs
 arr = [1, 5, 7, -1]
 arr.sort()
 k = 6
