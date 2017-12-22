@@ -21,6 +21,26 @@ def maxSlidingWindow(nums, k):
 
     return max_numbers
 
+def maxSlidingWindow2(A, B):
+    if B >= len(A):
+        return [max(A)]
 
+    start = 0
+    res = []
+    dq = []
+    for i in xrange(len(A)):
+        while len(dq) > start and A[dq[-1]] <= A[i]:
+            dq.pop()
+        dq.append(i)
+        
+        if i < B - 1:
+            continue
+        
+        while (i - dq[start]) >= B:
+            start += 1
+        
+        res.append(A[dq[start]])
+    
+    return res
 print maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3)
 print maxSlidingWindow([12, 1, 78, 90, 57, 89, 56],3)
