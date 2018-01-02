@@ -2,6 +2,7 @@ from collections import Counter
 #Given a sorted array of integers, find the number of occurrences of a given target value.
 # using Binary search
 # find the first and last occurance of the element in the array and the number of occurances =last - first + 1
+from bisect import bisect_left, bisect_right
 
 
 def BinarySearch(arr, target):
@@ -50,6 +51,13 @@ def findCount(arr, target):
     if start == -1 and end == -1:
         return end - start + 1
 
+# find the first and last occurance of a target value
+def searchRange(arr, target):
+        l, r = bisect_left(arr, target), bisect_right(arr, target)
+        if l == r:
+            return [-1, -1]
+        else:
+            return [l, r-1]
 
 arr = [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 ]
 target = 10
