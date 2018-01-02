@@ -63,6 +63,6 @@ def search2 (arr, low, high, key):
  
     # If arr[l..mid] is not sorted, then arr[mid... r]
     # must be sorted
-    if key >= arr[mid] and key <= arr[h]:
-        return search(a, mid+1, high, key)
+    if key >= arr[mid] and key <= arr[high]:
+        return search(arr, mid+1, high, key)
     return search(arr, low, mid-1, key)
