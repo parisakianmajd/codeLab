@@ -22,11 +22,9 @@ def BinarySearch(arr, target):
 def BinarySearchFirst(arr, target, searchFirst):
     low = 0
     high = len(arr)-1
-    print high
     result = -1
     while low <= high:
         mid = (low + high) / 2
-        print mid
         if arr[mid] < target:
             low = mid + 1
         elif arr[mid] > target:
