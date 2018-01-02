@@ -70,8 +70,17 @@ class LinkedList:
             print temp.data,
             temp = temp.next
         print '\n'
- 
- 
+def detectCycle(A):
+    if A is None: return
+    dummy = ListNode("dummy")
+    current = A
+    while current.next is not dummy:
+        next = current.next
+        if next is None: return
+        current.next = dummy
+        current = next
+        
+    return current
 llist = LinkedList()
 llist.push(10)
 llist.push(4)
