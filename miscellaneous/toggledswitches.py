@@ -21,6 +21,14 @@ def bulbs(bulbs):
         if (bulb + switch) % 2 == 0:
             switch += 1
     return switch
+def bulbs(A):
+    switches = 0
+    state = 0
+    for i in xrange(len(A)):
+        if A[i] == state:
+            switches += 1
+            state = 1 - state
+    return switches
 
 arr = [1, 1, 0, 0, 1, 1, 0, 0, 1]
 #arr =[ 1, 0, 1, 0]
