@@ -42,8 +42,33 @@ class LinkedList:
         if nextNode is not None:
             head.next = self.reverse(nextNode, k)
         # prev is new head
-        return prev
-    
+        return prev    
+    #reverse every k nodes
+       def reverseK2(self, head, k):
+        if head == None or head.next == None:
+            return head
+        nextNode = prev = None
+        
+        current = head
+        prevHead = None
+        currHead = current
+        while current is not None:
+            currHead = current
+            count = 0
+            prev = None
+            while current is not None and count < k:
+                nextNode = current.next
+                current.next = prev
+                prev = current
+                current = nextNode
+                count += 1
+            if prevHead != None:
+                prevHead.next = prev
+            else:
+                head = prev
+            prevHead = currHead
+        return head
+     
     # Reverse a linked list from position m to n          
     def reverseBetween(self, head, m,n):
         if n == m:
