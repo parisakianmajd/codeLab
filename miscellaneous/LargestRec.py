@@ -1,6 +1,6 @@
 #Largest rectangular area in a histogram
 
-def largestRecArea(hist):
+def largestRectangleArea(hist):
     heights = []
     positions = []
     maxArea = -1
@@ -16,20 +16,23 @@ def largestRecArea(hist):
             while len(heights) > 0 and hist[i] < heights[-1]: 
                 h = heights.pop()
                 p = positions.pop()
-                area = h * (i-p)
+                area = h * (i - p)
                 if area > maxArea:
                     maxArea = area
-            if len(heights) == 0:
-                heights.append(hist[i])
-                # if the stack becomes empty, add the last position back because that's the start of the current rec
-                positions.append(p)
-    while len(heights):
+
+            heights.append(hist[i])
+            positions.append(p)
+    while len(heights) > 0:
         h = heights.pop()
         index = positions.pop()
-        area = (len(hist)- index) * h
+        area = (len(hist) - index) * h
         if area > maxArea:
             maxArea = area
     return maxArea
+
+A = [ 6, 2, 5, 4, 5, 1, 6 ]
+print largestRectangleArea(A)
+
 
 h = [1, 3, 2, 1, 2]
 print largestRecArea(h)
