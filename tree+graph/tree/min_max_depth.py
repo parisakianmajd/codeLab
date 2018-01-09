@@ -1,5 +1,11 @@
-# Given a binary tree, find its minimum depth.
+# Given a binary tree, find its max depth.
 
+def maxDepth(self, root):
+    if root is None:
+        return 0
+    return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+
+# Given a binary tree, find its minimum depth.
 
 def minDepth(self, A):
     if A is None:
