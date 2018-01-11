@@ -8,7 +8,21 @@ class Node:
         self.right = None
         self.val = key
 
+    def zigzagLevelOrder2(root):
+        res = []
+        if root is None:
+            return res
 
+        queue = [root]
+        leftToRight = True
+        while queue:
+            res.append(node.val for node in (queue if leftToRight else reversed(queue)))
+            queue = [ child for node in queue
+                            for child in [node.left, node.right]
+                            if child is not None ]
+            leftToRight = not leftToRight
+
+        return res
     def zigzagByLayer(zigzagTraverse, currentLayer, leftToRight):
         if len(currentLayer) == 0:
             return
